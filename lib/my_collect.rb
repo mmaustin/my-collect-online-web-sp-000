@@ -1,10 +1,10 @@
-def my_collect(array)
+def my_collect(languages)
   if block_given?
     i = 0
 
     collection = []
-    while i < array.length
-      collection << yield(array[i])
+    while i < languages.length
+      collection << yield(languages[i])
       i += 1
     end
     collection
@@ -12,4 +12,6 @@ def my_collect(array)
     puts "There is no block given."
   end
 end
-my_collect()
+my_collect(["ruby", "javascript", "python", "objective-c"]) do |language|
+  language.upcase
+end
